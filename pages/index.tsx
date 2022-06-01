@@ -1,15 +1,16 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Button from '@mui/material/Button';
+import Layout from '../components/layouts/Layout';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Button variant='contained'>Contained</Button>
-      <Button variant='outlined'>Outlined</Button>
-    </div>
+    <Layout title='eastor112'>
+      <div className={styles.container}>
+        <Button variant='contained'>Contained</Button>
+        <Button variant='outlined'>Outlined</Button>
+      </div>
+    </Layout>
   );
 };
 

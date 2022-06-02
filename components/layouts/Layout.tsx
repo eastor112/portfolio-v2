@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import { FC, ReactNode } from 'react';
+import NavBar from '../ui/NavBar';
 
-interface props {
+interface Props {
+  title: string;
   children: ReactNode;
-  title?: string;
 }
 
-const Layout: FC<props> = ({ children, title }) => {
+const Layout: FC<Props> = ({ children, title }) => {
   return (
     <>
       <Head>
@@ -19,6 +20,8 @@ const Layout: FC<props> = ({ children, title }) => {
         />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
+
+      <NavBar />
 
       <main>{children}</main>
     </>

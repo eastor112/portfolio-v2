@@ -1,0 +1,8 @@
+services:
+  portfoliodb:
+    image: mongo:6.0.5
+    container_name: portfoliodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data/db

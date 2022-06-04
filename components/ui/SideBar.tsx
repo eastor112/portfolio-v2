@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import DrawerContent from '../drawerContent/DrawerContent';
 
-const drawerWidth = 240;
+const drawerWidth = 320;
 
 export default function SideBar() {
   const [mobileOpen, setMobileOpen] = useState(false);

@@ -1,4 +1,4 @@
-import { Box, Toolbar } from '@mui/material';
+import { Box } from '@mui/material';
 import Head from 'next/head';
 import { FC, ReactNode } from 'react';
 import SideBar from '../ui/SideBar';
@@ -9,7 +9,7 @@ interface Props {
   children: ReactNode;
 }
 
-const drawerWidth = 320;
+// const drawerWidth = 320;
 
 const Layout: FC<Props> = ({ children, title }) => {
   return (
@@ -30,12 +30,14 @@ const Layout: FC<Props> = ({ children, title }) => {
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          flex: 1,
+          minHeight: '100vh',
+          p: 2,
+          // width: { sm: `calc(100% - ${drawerWidth}px)` },
+          backgroundColor: 'red',
         }}
       >
-        <Toolbar />
+        {/* <Toolbar /> */}
         <Box>{children}</Box>
       </Box>
     </Box>

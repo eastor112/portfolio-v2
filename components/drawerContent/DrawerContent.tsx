@@ -1,6 +1,7 @@
 import {
   Box,
   Divider,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -8,14 +9,27 @@ import {
   ListItemText,
   Toolbar,
 } from '@mui/material';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import WorkIcon from '@mui/icons-material/Work';
+import AppsIcon from '@mui/icons-material/Apps';
+import PhoneIcon from '@mui/icons-material/Phone';
+import WebIcon from '@mui/icons-material/Web';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MailIcon from '@mui/icons-material/Mail';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
+import { FC } from 'react';
+import NextLink from 'next/link';
 
-const DrawerContent = () => {
+interface Props {
+  width: number;
+}
+
+const DrawerContent: FC<Props> = ({ width }) => {
   return (
     <div>
-      <Toolbar />
+      {width < 600 && <Toolbar />}
       <Divider />
 
       <Box
@@ -25,7 +39,7 @@ const DrawerContent = () => {
         }}
       >
         <Box
-          component='figure'
+          component="figure"
           sx={{
             height: '150px',
             width: '150px',
@@ -36,45 +50,117 @@ const DrawerContent = () => {
           }}
         >
           <Image
-            className='sidebar__info image'
-            src='/static/img/Emerson.jpg'
-            alt='Emerson'
+            className="sidebar__info image"
+            src="/static/img/Emerson.jpg"
+            alt="Emerson"
             width={200}
             height={200}
           />
         </Box>
-        <h1 className='sidebar__info name'>
-          <a href='./index.html'>EMERSON M. ASTO RODRIGUEZ</a>
-        </h1>
-        <h2 className='sidebar__info job'>
-          <a href='./index.html'>MECHATRONICS ENGINEER</a>
-        </h2>
-      </Box>
+        <Box className="sidebar__info name">
+          <NextLink href="/">
+            <Link
+              sx={{
+                textDecoration: 'none',
+                cursor: 'pointer',
+                fontSize: '0.8rem',
+              }}
+            >
+              <a>
+                <h1>EMERSON M. ASTO RODRIGUEZ</h1>
+              </a>
+            </Link>
+          </NextLink>
+        </Box>
 
-      <List>
-        {['PortFolio', 'My offer', 'Contact me'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon sx={{ color: 'white' }}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+        <NextLink href="/">
+          <Link
+            sx={{
+              textDecoration: 'none',
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+            }}
+          >
+            <a>
+              <h2>Full Stack Developer</h2>
+            </a>
+          </Link>
+        </NextLink>
+      </Box>
       <Divider />
       <List>
-        {['My Resume', 'Blog'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon sx={{ color: 'white' }}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem key="Portfolio" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <AppsIcon />
+            </ListItemIcon>
+            <ListItemText primary={'PortFolio'} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem key="My offer" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <WorkIcon />
+            </ListItemIcon>
+            <ListItemText primary={'My offer'} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem key="Contact me" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <PhoneIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Contact me'} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+      <Divider />
+      <List>
+        <ListItem key="My resume" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <AttachFileIcon />
+            </ListItemIcon>
+            <ListItemText primary={'My resume'} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem key="Blog" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <WebIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Blog'} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+
+      <Divider />
+
+      <List>
+        <ListItem key="Get in touch" disablePadding>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: 'white' }}>
+              <ConnectWithoutContactIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Get in touch'} />
+          </ListItemButton>
+        </ListItem>
+
+        <Box sx={{ display: 'flex', paddingX: '50px' }}>
+          <ListItemButton sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LinkedInIcon />
+          </ListItemButton>
+          <ListItemButton sx={{ display: 'flex', justifyContent: 'center' }}>
+            <GitHubIcon />
+          </ListItemButton>
+          <ListItemButton sx={{ display: 'flex', justifyContent: 'center' }}>
+            <MailIcon />
+          </ListItemButton>
+        </Box>
       </List>
     </div>
   );

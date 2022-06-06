@@ -13,7 +13,14 @@ interface Props {
 
 const Layout: FC<Props> = ({ children, title }) => {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        backgroundImage: `url('/static/img/fondo.jpg')`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+      }}
+    >
       <Head>
         <title>{title || 'Emerson Asto'}</title>
         <meta name="author" content="Emerson Maximo Asto Rodriguez" />
@@ -34,7 +41,6 @@ const Layout: FC<Props> = ({ children, title }) => {
           minHeight: '100vh',
           p: 2,
           // width: { sm: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: 'red',
         }}
       >
         {/* <Toolbar /> */}

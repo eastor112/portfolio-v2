@@ -89,7 +89,7 @@ const DrawerContent: FC<Props> = ({ width }) => {
       </Box>
       <Divider />
       <List>
-        <ListItem key="Portfolio" disablePadding>
+        <ListItem key="Portfolio" disablePadding selected>
           <ListItemButton>
             <ListItemIcon sx={{ color: 'white' }}>
               <AppsIcon />

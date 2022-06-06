@@ -14,7 +14,6 @@ declare module '@mui/material/styles' {
   }
 }
 
-
 const lightThemeOptions: ThemeOptions = {
   palette: {
     mode: 'light',
@@ -29,7 +28,7 @@ const lightThemeOptions: ThemeOptions = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#0A192988',
+          backgroundColor: '#0A1929dd',
           color: 'white',
         },
       },
